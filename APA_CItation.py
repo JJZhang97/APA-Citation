@@ -37,12 +37,19 @@ for webpage in webpages:
             name += f" {fm[0].upper()}."
     #In case if there is no author, retrieve name from webpage instead
     except Exception:
-        index = 0
-        for letter in webpage[12:]:
+        start_index = 0
+        add_index = 0
+        #strips off https:// if present
+        if webpage[:8] == "https://":
+            start_index += 8
+        #handles webpage with no www. at the beginning
+        if webpage[start_index:start_index+4] == "www.":
+            start_index += 4
+        for letter in webpage[start_index:]:
             if letter == ".":
                 break
-            index += 1
-            name = webpage[12:12+index].upper()
+            add_index += 1
+        name = webpage[start_index:start_index+add_index].upper()
     #Date
     #Returns date in RFC 3399
     dates = soup.find("meta", property = "article:published_time")
