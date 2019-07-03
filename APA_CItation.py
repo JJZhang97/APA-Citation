@@ -7,9 +7,7 @@ headers = ({'User-Agent':
             'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36'})
 
 #List of webpages to be crawled
-webpages = ["https://towardsdatascience.com/looking-for-a-house-build-a-web-scraper-to-help-you-5ab25badc83e",
-            "https://hackernoon.com/building-a-web-scraper-from-start-to-finish-bb6b95388184",
-            "https://www.nparks.gov.sg/mygreenspace/issue-19-vol-4-2013/gardening/grow-an-apple-tree-from-seed-in-singapore"]
+webpages = []
 
 for webpage in webpages:
     source = requests.get(webpage, headers = headers).text
