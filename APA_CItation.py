@@ -54,7 +54,10 @@ for webpage in webpages:
         dates = datetime.datetime.strptime(dates, "%Y-%m-%d")
         dates = dates.strftime("%Y, %B %d")
     #Article Name
-    title = soup.title.text
+    try:
+        title = soup.title.text
+    except Exception:
+        title = "Please retrieve the title yourself!"
     
     print(f"""{name} ({dates}). {title}. Retrieved from
     {webpage}""")
